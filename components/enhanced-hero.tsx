@@ -2,8 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { useAnimation } from "./animation-provider"
 
 export function EnhancedHero() {
@@ -12,7 +10,7 @@ export function EnhancedHero() {
   const y = useTransform(scrollY, [0, 500], [0, -150])
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
-  const { reducedMotion, spring } = useAnimation()
+  const { reducedMotion } = useAnimation()
 
   const containerVariants = {
     hidden: {},
@@ -104,48 +102,14 @@ export function EnhancedHero() {
               }}
               className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
             >
-              Scopri il Tuo Futuro con l'IA
+              I Segreti del Cosmo Ti Aspettano
             </motion.span>
           </motion.h1>
 
           <motion.p variants={itemVariants} className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-            Oroscopi personalizzati, calcolo dell'ascendente e compatibilità amorosa. La saggezza delle stelle incontra
-            l'intelligenza artificiale.
+            Svela i misteri del tuo destino attraverso oroscopi personalizzati, calcolo dell'ascendente e compatibilità
+            amorosa. Le stelle ti guidano verso un futuro luminoso.
           </motion.p>
-
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div
-              whileHover={reducedMotion ? {} : { scale: 1.05, y: -2 }}
-              whileTap={reducedMotion ? {} : { scale: 0.95 }}
-              transition={spring}
-            >
-              <Button asChild size="lg" className="text-lg px-8 py-3 relative overflow-hidden group">
-                <Link href="#segni">
-                  <motion.span
-                    className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"
-                    initial={false}
-                  />
-                  <span className="relative z-10">Scopri il tuo oroscopo</span>
-                </Link>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              whileHover={reducedMotion ? {} : { scale: 1.05, y: -2 }}
-              whileTap={reducedMotion ? {} : { scale: 0.95 }}
-              transition={spring}
-            >
-              <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3 bg-transparent group">
-                <Link href="/ascendente">
-                  <motion.span
-                    className="absolute inset-0 bg-primary/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                    initial={false}
-                  />
-                  <span className="relative z-10">Calcola Ascendente</span>
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </motion.section>
