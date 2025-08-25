@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { Calendar, Clock, MapPin, Loader2 } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -64,6 +65,7 @@ export function AscendantCalculator() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const router = useRouter()
   const { reducedMotion, spring } = useAnimation()
 
   const handleInputChange = (field: string, value: string) => {
@@ -263,7 +265,7 @@ export function AscendantCalculator() {
                   className="flex-1 bg-transparent"
                   onClick={() => {
                     const url = `/oroscopo/${result.result.ascendant}/giornaliero`
-                    window.open(url, "_blank")
+                    router.push(url)
                   }}
                 >
                   Vedi Oroscopo {zodiacNames[result.result.ascendant]}
