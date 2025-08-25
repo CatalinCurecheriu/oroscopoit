@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { MotionSection } from "@/components/motion-section"
 import { AuroraBackground } from "@/components/aurora-background"
+import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
   title: "Privacy Policy - Oroscopo IT",
@@ -11,6 +12,7 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
       <AuroraBackground />
+      <Header />
 
       <div className="relative z-10">
         <div className="container mx-auto px-4 py-16">
