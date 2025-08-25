@@ -12,84 +12,84 @@ const zodiacSigns = [
     slug: "ariete",
     icon: "♈",
     dates: "21 Mar - 19 Apr",
-    image: "/beautiful-artistic-aries-ram-zodiac-sign-teal-and-.png",
+    image: "/ariete.png",
   },
   {
     name: "Toro",
     slug: "toro",
     icon: "♉",
     dates: "20 Apr - 20 Mag",
-    image: "/beautiful-artistic-taurus-bull-zodiac-sign-teal-an.png",
+    image: "/toro.png",
   },
   {
     name: "Gemelli",
     slug: "gemelli",
     icon: "♊",
     dates: "21 Mag - 20 Giu",
-    image: "/beautiful-artistic-gemini-twins-zodiac-sign-teal-a.png",
+    image: "/gemelli.png",
   },
   {
     name: "Cancro",
     slug: "cancro",
     icon: "♋",
     dates: "21 Giu - 22 Lug",
-    image: "/beautiful-artistic-cancer-crab-zodiac-sign-teal-an.png",
+    image: "/cancro.png",
   },
   {
     name: "Leone",
     slug: "leone",
     icon: "♌",
     dates: "23 Lug - 22 Ago",
-    image: "/beautiful-artistic-leo-lion-zodiac-sign-teal-and-b.png",
+    image: "/leone.png",
   },
   {
     name: "Vergine",
     slug: "vergine",
     icon: "♍",
     dates: "23 Ago - 22 Set",
-    image: "/beautiful-artistic-virgo-maiden-zodiac-sign-teal-a.png",
+    image: "/vergine.png",
   },
   {
     name: "Bilancia",
     slug: "bilancia",
     icon: "♎",
     dates: "23 Set - 22 Ott",
-    image: "/beautiful-artistic-libra-scales-zodiac-sign-teal-a.png",
+    image: "/bilancia.png",
   },
   {
     name: "Scorpione",
     slug: "scorpione",
     icon: "♏",
     dates: "23 Ott - 21 Nov",
-    image: "/beautiful-artistic-scorpio-scorpion-zodiac-sign-te.png",
+    image: "/scorpione.png",
   },
   {
     name: "Sagittario",
     slug: "sagittario",
     icon: "♐",
     dates: "22 Nov - 21 Dic",
-    image: "/beautiful-artistic-sagittarius-archer-zodiac-sign-.png",
+    image: "/sagittario.png",
   },
   {
     name: "Capricorno",
     slug: "capricorno",
     icon: "♑",
     dates: "22 Dic - 19 Gen",
-    image: "/beautiful-artistic-capricorn-goat-zodiac-sign-teal.png",
+    image: "/capricorno.png",
   },
   {
     name: "Acquario",
     slug: "acquario",
     icon: "♒",
     dates: "20 Gen - 18 Feb",
-    image: "/beautiful-artistic-aquarius-water-bearer-zodiac-si.png",
+    image: "/acquario.png",
   },
   {
     name: "Pesci",
     slug: "pesci",
     icon: "♓",
     dates: "19 Feb - 20 Mar",
-    image: "/beautiful-artistic-pisces-fish-zodiac-sign-teal-an.png",
+    image: "/pesci.png",
   },
 ]
 
@@ -132,6 +132,11 @@ export function SignGrid() {
                         width={80}
                         height={80}
                         className="w-full h-full rounded-full object-cover filter drop-shadow-lg"
+                        onError={(e) => {
+                          console.log(`[v0] Failed to load image: ${sign.image}`)
+                          // Force show the image path instead of fallback
+                          e.currentTarget.style.display = "block"
+                        }}
                       />
                       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-400/30 to-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
                     </div>
