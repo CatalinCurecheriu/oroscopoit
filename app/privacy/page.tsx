@@ -4,8 +4,8 @@ import { AuroraBackground } from "@/components/aurora-background"
 import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - Oroscopo IT",
-  description: "Informativa sulla privacy per Oroscopo IT - Come proteggiamo i tuoi dati personali",
+  title: "Privacy Policy - OroAstra",
+  description: "Informativa sulla privacy per OroAstra - Come proteggiamo i tuoi dati personali",
 }
 
 export default function PrivacyPage() {
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
               <div className="glass-card p-8 rounded-2xl">
                 <h2 className="text-2xl font-semibold mb-4 text-blue-400">Introduzione</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Benvenuto su Oroscopo IT. Questa informativa sulla privacy descrive come raccogliamo, utilizziamo e
+                  Benvenuto su OroAstra. Questa informativa sulla privacy descrive come raccogliamo, utilizziamo e
                   proteggiamo le tue informazioni personali quando utilizzi il nostro sito web e i nostri servizi di
                   oroscopi personalizzati, calcolo dell'ascendente e compatibilità amorosa.
                 </p>
@@ -175,10 +175,10 @@ export default function PrivacyPage() {
                 </p>
                 <div className="space-y-2 text-muted-foreground">
                   <p>
-                    <strong>Email:</strong> privacy@oroscopo-it.com
+                    <strong>Email:</strong> privacy@oroastra.com
                   </p>
                   <p>
-                    <strong>Responsabile della Protezione dei Dati:</strong> dpo@oroscopo-it.com
+                    <strong>Responsabile della Protezione dei Dati:</strong> dpo@oroastra.com
                   </p>
                 </div>
               </div>

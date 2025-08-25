@@ -47,7 +47,7 @@ export function Header() {
               >
                 🔮
               </motion.span>
-              <span>Oroscopo IT</span>
+              <span>OroAstra</span>
             </Link>
           </motion.div>
 
