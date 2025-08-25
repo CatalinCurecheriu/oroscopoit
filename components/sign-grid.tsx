@@ -5,20 +5,21 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { StaggerChildren } from "./stagger-children"
 import { useAnimation } from "./animation-provider"
+import Image from "next/image"
 
 const zodiacSigns = [
-  { name: "Ariete", slug: "ariete", icon: "♈", dates: "21 Mar - 19 Apr" },
-  { name: "Toro", slug: "toro", icon: "♉", dates: "20 Apr - 20 Mag" },
-  { name: "Gemelli", slug: "gemelli", icon: "♊", dates: "21 Mag - 20 Giu" },
-  { name: "Cancro", slug: "cancro", icon: "♋", dates: "21 Giu - 22 Lug" },
-  { name: "Leone", slug: "leone", icon: "♌", dates: "23 Lug - 22 Ago" },
-  { name: "Vergine", slug: "vergine", icon: "♍", dates: "23 Ago - 22 Set" },
-  { name: "Bilancia", slug: "bilancia", icon: "♎", dates: "23 Set - 22 Ott" },
-  { name: "Scorpione", slug: "scorpione", icon: "♏", dates: "23 Ott - 21 Nov" },
-  { name: "Sagittario", slug: "sagittario", icon: "♐", dates: "22 Nov - 21 Dic" },
-  { name: "Capricorno", slug: "capricorno", icon: "♑", dates: "22 Dic - 19 Gen" },
-  { name: "Acquario", slug: "acquario", icon: "♒", dates: "20 Gen - 18 Feb" },
-  { name: "Pesci", slug: "pesci", icon: "♓", dates: "19 Feb - 20 Mar" },
+  { name: "Ariete", slug: "ariete", icon: "♈", dates: "21 Mar - 19 Apr", image: "/beautiful-mystical-aries-ram-constellation-golden-.png" },
+  { name: "Toro", slug: "toro", icon: "♉", dates: "20 Apr - 20 Mag", image: "/beautiful-mystical-taurus-bull-constellation-golde.png" },
+  { name: "Gemelli", slug: "gemelli", icon: "♊", dates: "21 Mag - 20 Giu", image: "/beautiful-mystical-gemini-twins-constellation-gold.png" },
+  { name: "Cancro", slug: "cancro", icon: "♋", dates: "21 Giu - 22 Lug", image: "/beautiful-mystical-cancer-crab-constellation-golde.png" },
+  { name: "Leone", slug: "leone", icon: "♌", dates: "23 Lug - 22 Ago", image: "/beautiful-mystical-leo-lion-constellation-golden-s.png" },
+  { name: "Vergine", slug: "vergine", icon: "♍", dates: "23 Ago - 22 Set", image: "/beautiful-mystical-virgo-maiden-constellation-gold.png" },
+  { name: "Bilancia", slug: "bilancia", icon: "♎", dates: "23 Set - 22 Ott", image: "/beautiful-mystical-libra-scales-constellation-gold.png" },
+  { name: "Scorpione", slug: "scorpione", icon: "♏", dates: "23 Ott - 21 Nov", image: "/beautiful-mystical-scorpio-scorpion-constellation-.png" },
+  { name: "Sagittario", slug: "sagittario", icon: "♐", dates: "22 Nov - 21 Dic", image: "/beautiful-mystical-sagittarius-archer-constellatio.png" },
+  { name: "Capricorno", slug: "capricorno", icon: "♑", dates: "22 Dic - 19 Gen", image: "/beautiful-mystical-capricorn-goat-constellation-go.png" },
+  { name: "Acquario", slug: "acquario", icon: "♒", dates: "20 Gen - 18 Feb", image: "/beautiful-mystical-aquarius-water-bearer-constella.png" },
+  { name: "Pesci", slug: "pesci", icon: "♓", dates: "19 Feb - 20 Mar", image: "/beautiful-mystical-pisces-fish-constellation-golde.png" },
 ]
 
 export function SignGrid() {
@@ -50,10 +51,20 @@ export function SignGrid() {
             transition={spring}
           >
             <Link href={`/oroscopo/${sign.slug}/giornaliero`}>
-              <Card className="glass-card hover:shadow-lg transition-all duration-300 cursor-pointer group">
+              <Card className="glass-card hover:shadow-lg transition-all duration-300 cursor-pointer group relative overflow-hidden">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                    {sign.icon}
+                  <div className="relative mb-4 flex justify-center">
+                    <div className="relative w-20 h-20 group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src={sign.image || "/placeholder.svg"}
+                        alt={`${sign.name} constellation`}
+                        width={80}
+                        height={80}
+                        className="rounded-full object-cover filter drop-shadow-lg"
+                      />
+                      {/* Mystical glow effect */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                    </div>
                   </div>
                   <h3 className="font-semibold text-lg mb-1">{sign.name}</h3>
                   <p className="text-sm text-muted-foreground">{sign.dates}</p>
