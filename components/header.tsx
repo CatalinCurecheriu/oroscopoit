@@ -108,7 +108,7 @@ export function Header() {
               animate={{ opacity: 1, backdropFilter: "blur(12px)" }}
               exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
               transition={{ duration: reducedMotion ? 0.1 : durations.fast }}
-              className="fixed inset-0 bg-black/60 z-40 md:hidden"
+              className="fixed inset-0 bg-black/60 z-[9998] md:hidden"
               onClick={() => setIsMenuOpen(false)}
             />
 
@@ -120,7 +120,7 @@ export function Header() {
                 duration: reducedMotion ? 0.1 : durations.normal,
                 ease: "cubic-bezier(.2,.7,.1,1)",
               }}
-              className="fixed top-16 right-0 w-64 h-[calc(100vh-4rem)] glass-mobile-menu z-50 md:hidden"
+              className="fixed top-16 right-0 w-64 h-[calc(100vh-4rem)] glass-mobile-menu z-[9999] md:hidden"
             >
               <nav className="flex flex-col p-6 space-y-4">
                 {menuItems.map((item, index) => (
