@@ -12,84 +12,84 @@ const zodiacSigns = [
     slug: "ariete",
     icon: "♈",
     dates: "21 Mar - 19 Apr",
-    image: "/zodiac/ariete.png",
+    image: "/beautiful-artistic-aries-ram-zodiac-sign-teal-and-.png",
   },
   {
     name: "Toro",
     slug: "toro",
     icon: "♉",
     dates: "20 Apr - 20 Mag",
-    image: "/zodiac/toro.png",
+    image: "/beautiful-artistic-taurus-bull-zodiac-sign-teal-an.png",
   },
   {
     name: "Gemelli",
     slug: "gemelli",
     icon: "♊",
     dates: "21 Mag - 20 Giu",
-    image: "/zodiac/gemelli.png",
+    image: "/beautiful-artistic-gemini-twins-zodiac-sign-teal-a.png",
   },
   {
     name: "Cancro",
     slug: "cancro",
     icon: "♋",
     dates: "21 Giu - 22 Lug",
-    image: "/zodiac/cancro.png",
+    image: "/beautiful-artistic-cancer-crab-zodiac-sign-teal-an.png",
   },
   {
     name: "Leone",
     slug: "leone",
     icon: "♌",
     dates: "23 Lug - 22 Ago",
-    image: "/zodiac/leone.png",
+    image: "/beautiful-artistic-leo-lion-zodiac-sign-teal-and-b.png",
   },
   {
     name: "Vergine",
     slug: "vergine",
     icon: "♍",
     dates: "23 Ago - 22 Set",
-    image: "/zodiac/vergine.png",
+    image: "/beautiful-artistic-virgo-maiden-zodiac-sign-teal-a.png",
   },
   {
     name: "Bilancia",
     slug: "bilancia",
     icon: "♎",
     dates: "23 Set - 22 Ott",
-    image: "/zodiac/bilancia.png",
+    image: "/beautiful-artistic-libra-scales-zodiac-sign-teal-a.png",
   },
   {
     name: "Scorpione",
     slug: "scorpione",
     icon: "♏",
     dates: "23 Ott - 21 Nov",
-    image: "/zodiac/scorpione.png",
+    image: "/beautiful-artistic-scorpio-scorpion-zodiac-sign-te.png",
   },
   {
     name: "Sagittario",
     slug: "sagittario",
     icon: "♐",
     dates: "22 Nov - 21 Dic",
-    image: "/zodiac/sagittario.png",
+    image: "/beautiful-artistic-sagittarius-archer-zodiac-sign-.png",
   },
   {
     name: "Capricorno",
     slug: "capricorno",
     icon: "♑",
     dates: "22 Dic - 19 Gen",
-    image: "/zodiac/capricorno.png",
+    image: "/beautiful-artistic-capricorn-goat-zodiac-sign-teal.png",
   },
   {
     name: "Acquario",
     slug: "acquario",
     icon: "♒",
     dates: "20 Gen - 18 Feb",
-    image: "/zodiac/acquario.png",
+    image: "/beautiful-artistic-aquarius-water-bearer-zodiac-si.png",
   },
   {
     name: "Pesci",
     slug: "pesci",
     icon: "♓",
     dates: "19 Feb - 20 Mar",
-    image: "/zodiac/pesci.png",
+    image: "/beautiful-artistic-pisces-fish-zodiac-sign-teal-an.png",
   },
 ]
 
@@ -128,25 +128,12 @@ export function SignGrid() {
                     <div className="relative w-20 h-20 group-hover:scale-110 transition-transform duration-300">
                       <img
                         src={sign.image || "/placeholder.svg"}
-                        alt={`${sign.name} constellation`}
+                        alt={`${sign.name} zodiac sign`}
                         width={80}
                         height={80}
                         className="w-full h-full rounded-full object-cover filter drop-shadow-lg"
-                        onError={(e) => {
-                          // Fallback to icon if image fails to load
-                          e.currentTarget.style.display = "none"
-                          e.currentTarget.nextElementSibling.style.display = "flex"
-                        }}
                       />
-                      {/* Fallback icon display */}
-                      <div
-                        className="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center text-white text-2xl font-bold"
-                        style={{ display: "none" }}
-                      >
-                        {sign.icon}
-                      </div>
-                      {/* Mystical glow effect */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-teal-400/30 to-cyan-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
                     </div>
                   </div>
                   <h3 className="font-semibold text-lg mb-1">{sign.name}</h3>
