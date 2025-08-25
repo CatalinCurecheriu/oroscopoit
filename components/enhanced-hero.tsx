@@ -2,8 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { useAnimation } from "./animation-provider"
 
 export function EnhancedHero() {
@@ -12,7 +10,7 @@ export function EnhancedHero() {
   const y = useTransform(scrollY, [0, 500], [0, -150])
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
-  const { reducedMotion, spring } = useAnimation()
+  const { reducedMotion } = useAnimation()
 
   const containerVariants = {
     hidden: {},
@@ -57,13 +55,26 @@ export function EnhancedHero() {
     <motion.section
       ref={ref}
       style={reducedMotion ? {} : { y, opacity }}
-      className="relative z-10 pt-24 pb-16 overflow-hidden"
+      className="relative z-10 pt-24 pb-16 overflow-hidden min-h-screen flex items-center"
     >
+      <div className="absolute inset-0 w-full h-full -z-10">
+        <iframe
+          src="https://my.spline.design/galaxy-bP40YqdRtNCIM5fzWyykVKk3/"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          className="w-full h-full"
+          title="3D Galaxy Background"
+        />
+      </div>
+
+      <div className="absolute inset-0 bg-black/30 -z-5" />
+
       {/* Floating elements */}
       <motion.div
         variants={floatingVariants}
         animate="animate"
-        className="absolute top-20 left-10 text-6xl opacity-20 pointer-events-none"
+        className="absolute top-20 left-10 text-6xl opacity-20 pointer-events-none z-20"
       >
         ✨
       </motion.div>
@@ -71,7 +82,7 @@ export function EnhancedHero() {
         variants={floatingVariants}
         animate="animate"
         style={{ animationDelay: "1s" }}
-        className="absolute top-40 right-20 text-4xl opacity-20 pointer-events-none"
+        className="absolute top-40 right-20 text-4xl opacity-20 pointer-events-none z-20"
       >
         🌙
       </motion.div>
@@ -79,16 +90,16 @@ export function EnhancedHero() {
         variants={floatingVariants}
         animate="animate"
         style={{ animationDelay: "2s" }}
-        className="absolute bottom-20 left-1/4 text-5xl opacity-20 pointer-events-none"
+        className="absolute bottom-20 left-1/4 text-5xl opacity-20 pointer-events-none z-20"
       >
         ⭐
       </motion.div>
 
-      <div className="container mx-auto px-4 text-center">
+      <div className="container mx-auto px-4 text-center relative z-10">
         <motion.div initial="hidden" animate="visible" variants={containerVariants} className="max-w-4xl mx-auto">
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
+            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent drop-shadow-lg"
           >
             <motion.span
               initial={{ backgroundPosition: "0% 50%" }}
@@ -104,48 +115,17 @@ export function EnhancedHero() {
               }}
               className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
             >
-              Scopri il Tuo Futuro con l'IA
+              I Segreti del Cosmo Ti Aspettano
             </motion.span>
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-            Oroscopi personalizzati, calcolo dell'ascendente e compatibilità amorosa. La saggezza delle stelle incontra
-            l'intelligenza artificiale.
+          <motion.p
+            variants={itemVariants}
+            className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed drop-shadow-md"
+          >
+            Svela i misteri del tuo destino attraverso oroscopi personalizzati, calcolo dell'ascendente e compatibilità
+            amorosa. Le stelle ti guidano verso un futuro luminoso.
           </motion.p>
-
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div
-              whileHover={reducedMotion ? {} : { scale: 1.05, y: -2 }}
-              whileTap={reducedMotion ? {} : { scale: 0.95 }}
-              transition={spring}
-            >
-              <Button asChild size="lg" className="text-lg px-8 py-3 relative overflow-hidden group">
-                <Link href="#segni">
-                  <motion.span
-                    className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"
-                    initial={false}
-                  />
-                  <span className="relative z-10">Scopri il tuo oroscopo</span>
-                </Link>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              whileHover={reducedMotion ? {} : { scale: 1.05, y: -2 }}
-              whileTap={reducedMotion ? {} : { scale: 0.95 }}
-              transition={spring}
-            >
-              <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3 bg-transparent group">
-                <Link href="/ascendente">
-                  <motion.span
-                    className="absolute inset-0 bg-primary/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                    initial={false}
-                  />
-                  <span className="relative z-10">Calcola Ascendente</span>
-                </Link>
-              </Button>
-            </motion.div>
-          </motion.div>
         </motion.div>
       </div>
     </motion.section>

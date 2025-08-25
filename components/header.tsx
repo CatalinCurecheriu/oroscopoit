@@ -47,7 +47,7 @@ export function Header() {
               >
                 🔮
               </motion.span>
-              <span>Oroscopo IT</span>
+              <span>OroAstra</span>
             </Link>
           </motion.div>
 
@@ -103,17 +103,15 @@ export function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <>
-            {/* Overlay with blur effect */}
             <motion.div
               initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-              animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
+              animate={{ opacity: 1, backdropFilter: "blur(12px)" }}
               exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
               transition={{ duration: reducedMotion ? 0.1 : durations.fast }}
-              className="fixed inset-0 bg-background/80 z-40 md:hidden"
+              className="fixed inset-0 bg-black/60 z-[9998] md:hidden"
               onClick={() => setIsMenuOpen(false)}
             />
 
-            {/* Menu Panel with enhanced animations */}
             <motion.div
               initial={{ x: "100%", opacity: 0, scale: 0.95 }}
               animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -122,7 +120,7 @@ export function Header() {
                 duration: reducedMotion ? 0.1 : durations.normal,
                 ease: "cubic-bezier(.2,.7,.1,1)",
               }}
-              className="fixed top-16 right-0 w-64 h-[calc(100vh-4rem)] glass-card z-50 md:hidden"
+              className="fixed top-16 right-0 w-64 h-[calc(100vh-4rem)] glass-mobile-menu z-[9999] md:hidden"
             >
               <nav className="flex flex-col p-6 space-y-4">
                 {menuItems.map((item, index) => (
@@ -138,7 +136,7 @@ export function Header() {
                   >
                     <Link
                       href={item.href}
-                      className="block text-foreground/80 hover:text-foreground transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-primary/10"
+                      className="block text-white hover:text-blue-400 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-white/10"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
