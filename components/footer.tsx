@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center text-muted-foreground">
           <p>&copy; {currentYear} OroAstra. Tutti i diritti riservati.</p>
-          <p className="text-sm mt-2 opacity-75">creato da Cat con amore</p>
+          <p className="text-sm mt-2 opacity-75">creato da Cat ❤️</p>
         </div>
       </div>
     </footer>
