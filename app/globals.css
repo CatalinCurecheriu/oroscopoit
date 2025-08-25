@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -123,52 +124,7 @@
   }
 }
 
-/* Added custom slide-in animation utilities to replace problematic tw-animate-css import */
-@keyframes slide-in-from-top {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-from-bottom {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-from-left {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-from-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Custom aurora animation keyframes */
+/* Added custom aurora animation keyframes */
 @keyframes aurora {
   0%,
   100% {
@@ -228,19 +184,18 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Added utility classes for slide-in animations */
-.animate-slide-in-from-top {
-  animation: slide-in-from-top 0.5s ease-out;
+/* Added slide-in animation utilities to fix CSS error */
+@keyframes slide-in-from-top {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.animate-slide-in-from-bottom {
-  animation: slide-in-from-bottom 0.5s ease-out;
-}
-
-.animate-slide-in-from-left {
-  animation: slide-in-from-left 0.5s ease-out;
-}
-
-.animate-slide-in-from-right {
-  animation: slide-in-from-right 0.5s ease-out;
+.slide-in-from-top {
+  animation: slide-in-from-top 0.3s ease-out;
 }
